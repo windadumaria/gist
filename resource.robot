@@ -31,3 +31,18 @@ Login Account
 	Input Text   	xpath=//*[@id='password']   ${password}
 	Click Element   xpath=//input[contains(@value,'Sign in')]
 	Wait Until Page Contains Element   xpath=//img[contains(@class,'avatar')]
+
+Open Create Gist Page
+	Click Element   xpath=//a[contains(@aria-label,'Create new gist')]
+	Wait Until Page Contains Element   xpath=//div[@id='gists']
+	
+Create New Gist
+	[Arguments] 	${description}   ${filename}   ${code}
+	Click Element   xpath=//input[contains(@name,'gist[description]')]
+	Input Text      xpath=//input[contains(@name,'gist[description]')]   ${description}
+	Click Element   xpath=//input[contains(@aria-label,'Filename including extension…')]
+	Input Text      xpath=//input[contains(@aria-label,'Filename including extension…')]  ${filename}
+	Click Element   xpath=//div[contains(@class,'CodeMirror-code')]
+	Input Text      xpath=//div[contains(@class,'CodeMirror-code')]   ${code}
+	Click Element   xpath=//button[contains(text(),'Create public gist')]
+	Wait Until Page Contains Element   xpath=//div[contains(text(),$description)]

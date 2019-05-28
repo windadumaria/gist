@@ -9,6 +9,11 @@ Suite Teardown	  Close Browser
 
 *** Test Cases ***
 Create Gist
+	${description}   Set Variable   My Gist Description
+	${filename}      Set Variable   mygist.txt
+	${code}          Set Variable   This is my gist
+	Open Create Gist Page
+	Create New Gist   ${description}   ${filename}   ${code}
 
 #Edit Gist
 
