@@ -20,7 +20,7 @@ Suite Teardown	  Close Browser
 Delete Gist
 	${filename}     Set Variable   mygist.txt
 	Select A Gist   ${filename}
-	#Delete Gist
+	Delete Gist
 
 #Show My Gists
 #	Show My Gists List

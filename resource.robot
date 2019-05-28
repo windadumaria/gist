@@ -58,3 +58,6 @@ Select A Gist
 	Click Element   xpath=//*[contains(text(),'${filename}')]
 	Wait Until Page Contains Element   xpath=//*[@id='gist-pjax-container']
 
+Delete Gist
+	Click Element   xpath=//button[contains(@aria-label,'Delete this Gist')]
+	Confirm Action
