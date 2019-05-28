@@ -9,7 +9,6 @@ Suite Teardown	  Close Browser
 
 *** Test Cases ***
 Create Gist
-	Search Product   Handphone
 
 #Edit Gist
 

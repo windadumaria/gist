@@ -9,7 +9,7 @@ Library   Selenium2Library
 
 *** Variables ***
 ${BROWSER}    chrome
-${URL_BASE}   https://shopee.co.id/
+${URL_BASE}   https://gist.github.com/
 ${USERNAME}
 ${PASSWORD}
 
@@ -19,31 +19,15 @@ Open Browser To Home Page
 	Home Page Should Be Open
 
 Home Page Should Be Open
-    Title Should Be    Shopee Indonesia | Jual Beli di Ponsel dan Online
+    Wait Until Page Contains Element   xpath=//a[contains(@aria-label,'Gist Homepage')]
 
 Login Account
 	[Arguments] 	${username}   ${password}
-	Click Element   xpath=//div[contains(@class,'shopee-popup__close-btn')]//*[contains(@class,'shopee-svg-icon')]
-	Sleep   1s
-	Click Element   xpath=//li[contains(text(),'Login')]
-	Wait Until Page Contains Element   xpath=//div[contains(@class,'shopee-authen__form')]
-	Click Element   xpath=//div[contains(@class,'shopee-authen__form')]/div[2]/div/input
-	Input Text   	xpath=//div[contains(@class,'shopee-authen__form')]/div[2]/div/input   ${username}
-	Click Element   xpath=//div[contains(@class,'shopee-authen__form')]/div[3]/div/input 
-	Input Text   	xpath=//div[contains(@class,'shopee-authen__form')]/div[3]/div/input   ${password}
-
-Item Title Should Be Visible
-	Element Should Be Visible   //*[contains(concat(' ', @class, ' '), 'item-title')]
-
-Item Price Should Be Visible
-	Element Should Be Visible   //*[contains(concat(' ', @class, ' '), 'item-price')]
-
-Item Location Should Be Visible
-	Element Should Be Visible   //*[contains(concat(' ', @class, ' '), 'catalog-listing-item-location')]
-
-Item Agent Should Be Visible
-	Element Should Be Visible   //*[contains(concat(' ', @class, ' '), 'catalog-listing-item-agent')]
-
-Item Description Should Be Visible
-	Element Should Be Visible   //*[contains(concat(' ', @class, ' '), 'description')]
-
+	Click Element   xpath=//div[contains(@class,'Header-item f4 mr-0')]/a
+	Wait Until Page Contains Element   xpath=//*[@id='login_field']
+	Click Element   xpath=//*[@id='login_field']
+	Input Text   	xpath=//*[@id='login_field']   ${username}
+	Click Element   xpath=//*[@id='password'] 
+	Input Text   	xpath=//*[@id='password']   ${password}
+	Click Element   xpath=//input[contains(@value,'Sign in')]
+	Wait Until Page Contains Element   xpath=//img[contains(@class,'avatar')]
