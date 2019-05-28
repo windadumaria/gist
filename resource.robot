@@ -46,3 +46,15 @@ Create New Gist
 	Input Text      xpath=//div[contains(@class,'CodeMirror-code')]   ${code}
 	Click Element   xpath=//button[contains(text(),'Create public gist')]
 	Wait Until Page Contains Element   xpath=//div[contains(text(),$description)]
+
+Show My Gists List
+	Click Element   xpath=//img[contains(@class,'avatar')]
+	Click Element   xpath=//a[contains(text(),'Your gists')]
+	Wait Until Page Contains Element   xpath=//a[contains(@aria-label,'All gists')]
+
+Select A Gist
+	[Arguments] 	${filename}
+	Show My Gists List
+	Click Element   xpath=//*[contains(text(),'${filename}')]
+	Wait Until Page Contains Element   xpath=//*[@id='gist-pjax-container']
+
