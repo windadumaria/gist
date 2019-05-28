@@ -61,3 +61,11 @@ Select A Gist
 Delete Gist
 	Click Element   xpath=//button[contains(@aria-label,'Delete this Gist')]
 	Confirm Action
+
+Edit Description Gist
+	[Arguments] 	${description}
+	Click Element   xpath=//a[contains(@aria-label,'Edit this Gist')]
+	Click Element   xpath=//input[contains(@name,'gist[description]')]
+	Input Text      xpath=//input[contains(@name,'gist[description]')]   ${description}
+	Click Element   xpath=//button[contains(text(),'Update public gist')]
+	Wait Until Page Contains Element   xpath=//div[contains(text(),$description)]

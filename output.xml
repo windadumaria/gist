@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20190528 22:05:59.783" generator="Robot 3.0.2 (Python 2.7.10 on darwin)">
+<suite source="/Users/windadumarias/Downloads/gist/main.robot" id="s1" name="Main">
+<kw type="setup" name="Initialize Browser">
+<kw name="Open Browser To Home Page" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL_BASE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20190528 22:05:59.925" level="INFO">Opening browser 'chrome' to base url 'https://gist.github.com/'</msg>
+<status status="PASS" endtime="20190528 22:06:07.136" starttime="20190528 22:05:59.924"></status>
+</kw>
+<kw name="Home Page Should Be Open" library="resource">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=//a[contains(@aria-label,'Gist Homepage')]</arg>
+</arguments>
+<status status="PASS" endtime="20190528 22:06:07.159" starttime="20190528 22:06:07.138"></status>
+</kw>
+<status status="PASS" endtime="20190528 22:06:07.159" starttime="20190528 22:06:07.137"></status>
+</kw>
+<status status="PASS" endtime="20190528 22:06:07.159" starttime="20190528 22:05:59.924"></status>
+</kw>
+<kw name="Login Account" library="resource">
+<arguments>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//div[contains(@class,'Header-item f4 mr-0')]/a</arg>
+</arguments>
+<msg timestamp="20190528 22:06:07.161" level="INFO">Clicking element 'xpath=//div[contains(@class,'Header-item f4 mr-0')]/a'.</msg>
+<status status="PASS" endtime="20190528 22:06:08.744" starttime="20190528 22:06:07.160"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=//*[@id='login_field']</arg>
+</arguments>
+<status status="PASS" endtime="20190528 22:06:08.758" starttime="20190528 22:06:08.744"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id='login_field']</arg>
+</arguments>
+<msg timestamp="20190528 22:06:08.759" level="INFO">Clicking element 'xpath=//*[@id='login_field']'.</msg>
+<status status="PASS" endtime="20190528 22:06:08.800" starttime="20190528 22:06:08.758"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id='login_field']</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20190528 22:06:08.801" level="INFO">Typing text 'windadumaria' into text field 'xpath=//*[@id='login_field']'</msg>
+<status status="PASS" endtime="20190528 22:06:08.907" starttime="20190528 22:06:08.801"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id='password']</arg>
+</arguments>
+<msg timestamp="20190528 22:06:08.907" level="INFO">Clicking element 'xpath=//*[@id='password']'.</msg>
+<status status="PASS" endtime="20190528 22:06:08.957" starttime="20190528 22:06:08.907"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id='password']</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20190528 22:06:08.958" level="INFO">Typing text '31Oktober.' into text field 'xpath=//*[@id='password']'</msg>
+<status status="PASS" endtime="20190528 22:06:09.040" starttime="20190528 22:06:08.957"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//input[contains(@value,'Sign in')]</arg>
+</arguments>
+<msg timestamp="20190528 22:06:09.040" level="INFO">Clicking element 'xpath=//input[contains(@value,'Sign in')]'.</msg>
+<status status="PASS" endtime="20190528 22:06:13.058" starttime="20190528 22:06:09.040"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=//img[contains(@class,'avatar')]</arg>
+</arguments>
+<status status="PASS" endtime="20190528 22:06:13.077" starttime="20190528 22:06:13.058"></status>
+</kw>
+<status status="PASS" endtime="20190528 22:06:13.079" starttime="20190528 22:06:07.160"></status>
+</kw>
+<status status="PASS" endtime="20190528 22:06:13.079" starttime="20190528 22:05:59.924"></status>
+</kw>
+<test id="s1-t1" name="Edit Gist">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>mygist.txt</arg>
+</arguments>
+<assign>
+<var>${filename}</var>
+</assign>
+<msg timestamp="20190528 22:06:13.081" level="INFO">${filename} = mygist.txt</msg>
+<status status="PASS" endtime="20190528 22:06:13.081" starttime="20190528 22:06:13.081"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>My Updated Gist Description</arg>
+</arguments>
+<assign>
+<var>${description}</var>
+</assign>
+<msg timestamp="20190528 22:06:13.082" level="INFO">${description} = My Updated Gist Description</msg>
+<status status="PASS" endtime="20190528 22:06:13.082" starttime="20190528 22:06:13.082"></status>
+</kw>
+<kw name="Select A Gist" library="resource">
+<arguments>
+<arg>${filename}</arg>
+</arguments>
+<kw name="Show My Gists List" library="resource">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//img[contains(@class,'avatar')]</arg>
+</arguments>
+<msg timestamp="20190528 22:06:13.084" level="INFO">Clicking element 'xpath=//img[contains(@class,'avatar')]'.</msg>
+<status status="PASS" endtime="20190528 22:06:13.135" starttime="20190528 22:06:13.084"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//a[contains(text(),'Your gists')]</arg>
+</arguments>
+<msg timestamp="20190528 22:06:13.135" level="INFO">Clicking element 'xpath=//a[contains(text(),'Your gists')]'.</msg>
+<status status="PASS" endtime="20190528 22:06:13.839" starttime="20190528 22:06:13.135"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=//a[contains(@aria-label,'All gists')]</arg>
+</arguments>
+<status status="PASS" endtime="20190528 22:06:13.860" starttime="20190528 22:06:13.840"></status>
+</kw>
+<status status="PASS" endtime="20190528 22:06:13.861" starttime="20190528 22:06:13.084"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[contains(text(),'${filename}')]</arg>
+</arguments>
+<msg timestamp="20190528 22:06:13.861" level="INFO">Clicking element 'xpath=//*[contains(text(),'mygist.txt')]'.</msg>
+<status status="PASS" endtime="20190528 22:06:15.432" starttime="20190528 22:06:13.861"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=//*[@id='gist-pjax-container']</arg>
+</arguments>
+<status status="PASS" endtime="20190528 22:06:15.444" starttime="20190528 22:06:15.432"></status>
+</kw>
+<status status="PASS" endtime="20190528 22:06:15.445" starttime="20190528 22:06:13.082"></status>
+</kw>
+<kw name="Edit Description Gist" library="resource">
+<arguments>
+<arg>${description}</arg>
+</arguments>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//a[contains(@aria-label,'Edit this Gist')]</arg>
+</arguments>
+<msg timestamp="20190528 22:06:15.448" level="INFO">Clicking element 'xpath=//a[contains(@aria-label,'Edit this Gist')]'.</msg>
+<status status="PASS" endtime="20190528 22:06:16.245" starttime="20190528 22:06:15.448"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//input[contains(@name,'gist[description]')]</arg>
+</arguments>
+<msg timestamp="20190528 22:06:16.247" level="INFO">Clicking element 'xpath=//input[contains(@name,'gist[description]')]'.</msg>
+<status status="PASS" endtime="20190528 22:06:16.315" starttime="20190528 22:06:16.246"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//input[contains(@name,'gist[description]')]</arg>
+<arg>${description}</arg>
+</arguments>
+<msg timestamp="20190528 22:06:16.316" level="INFO">Typing text 'My Updated Gist Description' into text field 'xpath=//input[contains(@name,'gist[description]')]'</msg>
+<status status="PASS" endtime="20190528 22:06:16.502" starttime="20190528 22:06:16.315"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//button[contains(text(),'Update public gist')]</arg>
+</arguments>
+<msg timestamp="20190528 22:06:16.503" level="INFO">Clicking element 'xpath=//button[contains(text(),'Update public gist')]'.</msg>
+<status status="PASS" endtime="20190528 22:06:18.492" starttime="20190528 22:06:16.502"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=//div[contains(text(),$description)]</arg>
+</arguments>
+<status status="PASS" endtime="20190528 22:06:18.509" starttime="20190528 22:06:18.493"></status>
+</kw>
+<status status="PASS" endtime="20190528 22:06:18.509" starttime="20190528 22:06:15.445"></status>
+</kw>
+<status status="PASS" endtime="20190528 22:06:18.510" critical="yes" starttime="20190528 22:06:13.080"></status>
+</test>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20190528 22:06:18.596" starttime="20190528 22:06:18.514"></status>
+</kw>
+<doc>A test suite with some test cases for managing gist functionality
+
+This test has a workflow that is created using keywords in
+the imported resource file.</doc>
+<status status="PASS" endtime="20190528 22:06:18.596" starttime="20190528 22:05:59.786"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Main" pass="1">Main</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
